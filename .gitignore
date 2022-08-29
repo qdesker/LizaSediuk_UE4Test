@@ -1,0 +1,15 @@
+# Build Folders
+
+.vs/
+Binaries/
+Build/
+Intermediate/ProjectFiles/
+Saved/
+
+# Cache
+Intermediate/CachedAssetRegistry.bin
+
+# Build Files
+*.filters
+*.sln
+Intermediate/TargetInfo.json
