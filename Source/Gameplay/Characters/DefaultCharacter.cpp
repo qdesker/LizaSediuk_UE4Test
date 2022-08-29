@@ -134,7 +134,7 @@ void ADefaultCharacter::OnDead()
 		GetWorld()->GetTimerManager().SetTimer(DeathHandle,
 			FTimerDelegate::CreateWeakLambda(this, [this]
 			{
-				delete this;
+				this->Destroy();
 			}), DelayBeforeRemovingAfterDeath, false);
 	}
 }
