@@ -37,6 +37,16 @@ void UInGameHUDHealthBar::NativeConstruct()
 	ChangeState(pHealthComponent->GetInitialHealthValue(), pHealthComponent->GetInitialHealthValue());
 }
 
+void UInGameHUDHealthBar::NativeDestruct()
+{
+	if(!HealthComponentWeakPtr.IsValid())
+	{
+		return;
+	}
+	HealthComponentWeakPtr.Get()->OnHealthChanged.RemoveAll(this);
+	Super::NativeDestruct();
+}
+
 void UInGameHUDHealthBar::OnHealthChanged()
 {
 	if (!HealthComponentWeakPtr.IsValid())

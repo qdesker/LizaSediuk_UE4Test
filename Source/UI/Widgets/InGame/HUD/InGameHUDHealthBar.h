@@ -21,7 +21,7 @@ class CASTLEDEFENDER_API UInGameHUDHealthBar : public UDefaultUserWidget
 public:
 
 	virtual void NativeConstruct() override;
-
+	virtual void NativeDestruct() override;
 
 private:
 	UFUNCTION()
