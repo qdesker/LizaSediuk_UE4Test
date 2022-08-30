@@ -1,20 +1,20 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "ChracterHealthComponent.h"
+#include "CharacterHealthComponent.h"
 
 #include "DataHolders/Gameplay/DamageData/DamageDataAsset.h"
 
 #include "Tools/MacroTools.h"
 
-void UChracterHealthComponent::BeginPlay()
+void UCharacterHealthComponent::BeginPlay()
 {
 	Super::BeginPlay();
 
 	CurrentHealth = InitialHealth;
 }
 
-void UChracterHealthComponent::OnDamageReceived(float Damage, const FName& HitInBone)
+void UCharacterHealthComponent::OnDamageReceived(float Damage, const FName& HitInBone)
 {
 	if (IsDead())
 	{
@@ -36,7 +36,7 @@ void UChracterHealthComponent::OnDamageReceived(float Damage, const FName& HitIn
 	}
 }
 
-void UChracterHealthComponent::OnDead()
+void UCharacterHealthComponent::OnDead()
 {
 	OnDeadDelegate.Broadcast();
 }

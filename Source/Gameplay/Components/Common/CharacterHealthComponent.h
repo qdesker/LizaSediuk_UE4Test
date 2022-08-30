@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "ChracterHealthComponent.generated.h"
+#include "CharacterHealthComponent.generated.h"
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnDeadDelegate);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnHealthChangedDelegate);
@@ -12,13 +12,15 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnHealthChangedDelegate);
 class UDamageDataAsset;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class CASTLEDEFENDER_API UChracterHealthComponent : public UActorComponent
+class CASTLEDEFENDER_API UCharacterHealthComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:
 
 	float GetCurrentHealthValue() const { return CurrentHealth; }
+
+	float GetInitialHealthValue() const { return InitialHealth; }
 
 	virtual void OnDamageReceived(float Damage, const FName& HitInBone);
 
