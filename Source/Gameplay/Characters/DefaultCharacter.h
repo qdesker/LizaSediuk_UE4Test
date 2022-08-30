@@ -9,7 +9,7 @@
 
 class UCharacterWeaponComponent;
 class UCharacterInputArbiterComponent;
-class UChracterHealthComponent;
+class UCharacterHealthComponent;
 class AWeapon;
 
 UCLASS(config=Game)
@@ -51,7 +51,7 @@ protected:
 	/* Health */
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Health")
-	UChracterHealthComponent* Health;
+	UCharacterHealthComponent* Health;
 
 	/* Death */
 

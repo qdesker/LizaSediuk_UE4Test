@@ -5,7 +5,7 @@
 #include "Gameplay/Weapons/Rifles/RifleWeapon.h"
 #include "Gameplay/Weapons/CharacterWeaponComponent.h"
 #include "Gameplay/Components/Common/Input/CharacterInputArbiterComponent.h"
-#include "Gameplay/Components/Common/ChracterHealthComponent.h"
+#include "Gameplay/Components/Common/CharacterHealthComponent.h"
 #include "Gameplay/GameModes/DefaultGameMode.h"
 
 #include <Kismet/GameplayStatics.h>
@@ -20,7 +20,7 @@ ADefaultCharacter::ADefaultCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 
 	/* Health */
-	Health = CreateDefaultSubobject<UChracterHealthComponent>(TEXT("Health"));
+	Health = CreateDefaultSubobject<UCharacterHealthComponent>(TEXT("Health"));
 }
 
 void ADefaultCharacter::Tick(float DeltaTime)
