@@ -45,3 +45,7 @@ void AWeapon::Tick(float DeltaTime)
 	bIsCooledDown = CurrentCooldown <= 0.0f;
 }
 
+void AWeapon::AddDamage(float Value)
+{
+	Damage += Value;
+}

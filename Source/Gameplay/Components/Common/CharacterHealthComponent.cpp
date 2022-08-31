@@ -36,6 +36,12 @@ void UCharacterHealthComponent::OnDamageReceived(float Damage, const FName& HitI
 	}
 }
 
+void UCharacterHealthComponent::AddHealth(float ValueToAdd)
+{
+	CurrentHealth += ValueToAdd;
+	OnHealthChanged.Broadcast();
+}
+
 void UCharacterHealthComponent::OnDead()
 {
 	OnDeadDelegate.Broadcast();

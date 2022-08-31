@@ -24,6 +24,8 @@ public:
 
 	virtual void OnDamageReceived(float Damage, const FName& HitInBone);
 
+	void AddHealth(float ValueToAdd);
+
 	UFUNCTION(BlueprintCallable)
 	bool IsDead() const { return CurrentHealth <= 0.0f; }
 

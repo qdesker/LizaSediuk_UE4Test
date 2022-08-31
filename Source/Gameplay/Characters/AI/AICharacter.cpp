@@ -12,6 +12,7 @@
 #include "Tools/MacroTools.h"
 
 #include "AIController.h"
+#include "Gameplay/PickUps/PickUpBase.h"
 
 AAICharacter::AAICharacter()
 	: Super::ADefaultCharacter()
@@ -62,4 +63,27 @@ void AAICharacter::OnDead()
 	}
 
 	SetActorEnableCollision(false);
+	DropPickup();
+}
+
+void AAICharacter::DropPickup()
+{
+	if (Pickups.Num() <= 0)
+	{
+		return;
+	}
+	const float Rate = FMath::SRand();
+	for (const auto& PickUp : Pickups)
+	{
+		APickUpBase* PickUpBase = Cast<APickUpBase>(PickUp->GetDefaultObject());
+		if (!PickUpBase)
+		{
+			continue;
+		}
+		if (Rate < PickUpBase->GetDropRate())
+		{
+			FActorSpawnParameters ActorSpawnParameters;
+			GetWorld()->SpawnActor<AActor>(PickUp, GetActorLocation(), GetActorRotation(), ActorSpawnParameters);
+		}
+	}
 }

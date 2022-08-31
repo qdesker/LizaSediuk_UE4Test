@@ -42,6 +42,8 @@ public:
 	void SetDamage(float _Damage) { Damage = _Damage; }
 	FORCEINLINE float GetDamage() const { return Damage; }
 
+	void AddDamage(float Value);
+
 protected:
 
 	/** The main skeletal mesh associated with this Weapon. */

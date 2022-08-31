@@ -33,6 +33,16 @@ void UCharacterWeaponComponent::SetWeaponType(EWeaponType Type)
 	OnWeaponChanged.Broadcast(WeaponType);
 }
 
+void UCharacterWeaponComponent::AddDamage(float Value)
+{
+	auto* Weapon = Cast<AWeapon>(GetChildActor());
+	if (!Weapon)
+	{
+		return;
+	}
+	Weapon->AddDamage(Value);
+}
+
 void UCharacterWeaponComponent::ParseWeaponData(const FWeaponData& Data)
 {
 	if (!EnsureMsg(Data.IsValid(), TEXT("[CharacterWeaponComponent] Weapon data is not valid")))

@@ -33,6 +33,8 @@ public:
 
 	virtual void SetWeaponType(EWeaponType Type);
 
+	void AddDamage(float Value);
+
 	EWeaponType GetWeaponType() const { return WeaponType; }
 
 	virtual void Fire(const ADefaultCharacter* Caller);

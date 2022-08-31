@@ -6,6 +6,7 @@
 #include "Gameplay/Characters/DefaultCharacter.h"
 #include "AICharacter.generated.h"
 
+class APickUpBase;
 class UEnemyAnalyzerComponent;
 
 /**
@@ -34,7 +35,12 @@ protected:
 
 	virtual void OnDead() override;
 
+	void DropPickup();
+
 private:
+
+	UPROPERTY(EditAnywhere)
+	TArray<TSubclassOf<APickUpBase>> Pickups;
 
 	UPROPERTY()
 	AActor* CurrentTarget;

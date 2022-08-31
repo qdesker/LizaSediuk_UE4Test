@@ -32,6 +32,10 @@ public:
 
 	virtual void ChangeWeapon(EChangeDirection ChangeDirection);
 
+	UCharacterHealthComponent* GetHealthComponent() const { return Health; }
+
+	UCharacterWeaponComponent* GetWeaponComponent() const { return CurrentWeapon; }
+
 protected:
 
 	virtual void BeginPlay() override;
