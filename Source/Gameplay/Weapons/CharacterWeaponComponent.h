@@ -9,6 +9,16 @@
 
 class ADefaultCharacter;
 
+UENUM()
+enum class EChangeDirection
+{
+	None = 0,
+
+	Next,
+
+	Previous
+};
+
 DECLARE_MULTICAST_DELEGATE_OneParam(FOnWeaponChangedDelegate, EWeaponType);
 
 /**
@@ -22,9 +32,12 @@ class CASTLEDEFENDER_API UCharacterWeaponComponent : public UChildActorComponent
 public:
 
 	virtual void SetWeaponType(EWeaponType Type);
+
 	EWeaponType GetWeaponType() const { return WeaponType; }
 
 	virtual void Fire(const ADefaultCharacter* Caller);
+
+	virtual void ChangeWeapon(const EChangeDirection ChangeDirection);
 
 	FOnWeaponChangedDelegate OnWeaponChanged;
 
@@ -33,6 +46,15 @@ protected:
 	virtual void ParseWeaponData(const FWeaponData& Data);
 
 private:
+
+	/**
+	 * We need this function because the "%" definition in c++ is not the same as in math. In math the remainder
+	 * cannot be negative, which c++ is accept.
+	*/
+	int32 Modulo(int32 Dividend, int32 Divisor) const;
+
+	UPROPERTY(EditAnywhere)
+	TArray<EWeaponType> Weapons;
 
 	EWeaponType WeaponType = EWeaponType::None;
 };

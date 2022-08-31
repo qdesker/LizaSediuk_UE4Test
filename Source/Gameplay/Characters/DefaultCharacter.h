@@ -11,6 +11,7 @@ class UCharacterWeaponComponent;
 class UCharacterInputArbiterComponent;
 class UCharacterHealthComponent;
 class AWeapon;
+enum class EChangeDirection;
 
 UCLASS(config=Game)
 class ADefaultCharacter : public ACharacter
@@ -28,6 +29,8 @@ public:
 	bool IsDead() const;
 
 	virtual void OnDamageReceived(const ADefaultCharacter* FromCharacter, const AWeapon* WithWeapon, const FHitResult& Hit);
+
+	virtual void ChangeWeapon(EChangeDirection ChangeDirection);
 
 protected:
 

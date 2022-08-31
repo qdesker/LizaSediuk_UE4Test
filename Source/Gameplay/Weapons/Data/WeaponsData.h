@@ -17,7 +17,12 @@ enum class EWeaponType
 {
 	None = 0,
 
-	AK47
+	AK47,
+	AK74,
+	AR4,
+	ValRifle,
+
+	Max
 };
 
 USTRUCT()

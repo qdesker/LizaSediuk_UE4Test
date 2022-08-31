@@ -63,3 +63,37 @@ void UCharacterWeaponComponent::Fire(const ADefaultCharacter* Caller)
 		Weapon->Fire();
 	}
 }
+
+void UCharacterWeaponComponent::ChangeWeapon(const EChangeDirection ChangeDirection)
+{
+	if (Weapons.Num() <= 0)
+	{
+		return;
+	}
+	int32 Index = 0;
+	Weapons.Find(WeaponType, Index);
+	switch (ChangeDirection)
+	{
+	case EChangeDirection::Next:
+		Index++;
+		break;
+	case EChangeDirection::Previous:
+		Index--;
+		break;
+	default:
+		return;
+	}
+	if (Weapons.IsValidIndex(Index))
+	{
+		SetWeaponType(Weapons[Index]);
+	}
+	else
+	{
+		SetWeaponType(Weapons[Modulo(Index, Weapons.Num())]);
+	}
+}
+
+int32 UCharacterWeaponComponent::Modulo(int32 Dividend, int32 Divisor) const
+{
+	return (Divisor + Dividend % Divisor) % Divisor;
+}

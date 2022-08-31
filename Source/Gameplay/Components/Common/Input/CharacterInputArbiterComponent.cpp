@@ -4,6 +4,7 @@
 #include "CharacterInputArbiterComponent.h"
 
 #include "Gameplay/Characters/DefaultCharacter.h"
+#include "Gameplay/Weapons/CharacterWeaponComponent.h"
 
 #include "Tools/MacroTools.h"
 
@@ -129,4 +130,22 @@ void UCharacterInputArbiterComponent::LookUp(float Value)
 	}
 
 	OwnerCharacter->AddControllerPitchInput(Value);
+}
+
+void UCharacterInputArbiterComponent::NextWeapon()
+{
+	if (!IsValid(OwnerCharacter))
+	{
+		return;
+	}
+	OwnerCharacter->ChangeWeapon(EChangeDirection::Next);
+}
+
+void UCharacterInputArbiterComponent::PreviousWeapon()
+{
+	if (!IsValid(OwnerCharacter))
+	{
+		return;
+	}
+	OwnerCharacter->ChangeWeapon(EChangeDirection::Previous);
 }

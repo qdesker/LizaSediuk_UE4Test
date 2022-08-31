@@ -34,6 +34,9 @@ void UPlayerInputArbiterComponent::SetupPlayerInputComponent(class UInputCompone
 
 	PlayerInputComponent->BindAxis("Turn", this, &UPlayerInputArbiterComponent::Turn);
 	PlayerInputComponent->BindAxis("LookUp", this, &UPlayerInputArbiterComponent::LookUp);
+
+	PlayerInputComponent->BindAction("NextWeapon", IE_Pressed, this, &UPlayerInputArbiterComponent::NextWeapon);
+	PlayerInputComponent->BindAction("PreviousWeapon", IE_Pressed, this, &UPlayerInputArbiterComponent::PreviousWeapon);
 }
 
 void UPlayerInputArbiterComponent::StartAim()

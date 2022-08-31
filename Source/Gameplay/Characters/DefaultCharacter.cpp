@@ -109,6 +109,11 @@ void ADefaultCharacter::OnDamageReceived(const ADefaultCharacter* FromCharacter,
 	Health->OnDamageReceived(WithWeapon->GetDamage(), BoneHit);
 }
 
+void ADefaultCharacter::ChangeWeapon(EChangeDirection ChangeDirection)
+{
+	CurrentWeapon->ChangeWeapon(ChangeDirection);
+}
+
 void ADefaultCharacter::Fire()
 {
 	if (EnsureMsg(CurrentWeapon, TEXT("[DefaultCharacter] CurrentWeapon is not set in derived class constructor")))

@@ -55,6 +55,9 @@ protected:
 	virtual void Turn(float Value);
 	virtual void LookUp(float Value);
 
+	virtual void NextWeapon();
+	virtual void PreviousWeapon();
+
 private:
 	
 	bool bIsFiring = false;
